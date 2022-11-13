@@ -6,11 +6,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><s:message code="pages.create-book.title"/></title>
+    <title>JSP</title>
 </head>
 <body>
-***  *  *
-* *  * *
-***  *  *
+
+    Warning this is a test!!
+
 </body>
 </html>
