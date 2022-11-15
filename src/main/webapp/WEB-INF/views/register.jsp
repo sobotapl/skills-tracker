@@ -5,9 +5,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Registration and Login System</title>
@@ -29,10 +27,12 @@
 <div class="container">
     <div class="row col-md-8 offset-md-2">
         <div class="card">
-            <div th:if="${param.success}">
-                <div class="alert alert-info">You've successfully registered
-                    to our app!</div>
+            <div> <c:if test="${param.success != null}">
+                  <div class="alert alert-info">You've successfully registered to our app!</div>
+                  </c:if>
             </div>
+        </div>
+
             <div class="card-header">
                 <h2 class="text-center">Registration</h2>
             </div>
