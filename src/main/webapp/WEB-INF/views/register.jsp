@@ -65,8 +65,7 @@
 
                     <div class="form-group mb-3">
                         <button class="btn btn-primary" type="submit">Register</button>
-                        <span>Already registered? <a href="/" href="/login">Login
-                             here</a></span>
+                        <span>Already registered? <a href="/" href="/login">Login here</a></span>
                     </div>
                 </form:form>
             </div>
