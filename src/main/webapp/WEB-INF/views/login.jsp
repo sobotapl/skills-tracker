@@ -27,42 +27,35 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <div c:if="${param.error}">
+            <div> <c:if test="${param.error != null}">
                 <div class="alert alert-danger">Invalid Email and Password.</div>
+                </c:if>
+                </div>
             </div>
-            <div c:if="${param.logout}">
+            <div> <c:if test="${param.logout != null}">
                 <div class="alert alert-success">You have been logged out.</div>
+                </c:if>
+                </div>
             </div>
             <div class="card">
                 <div class="card-header">
                     <h3 class="text-center">Login Form</h3>
                 </div>
                 <div class="card-body">
-                    <form:form method="post" action="/login" class="form-horizontal" role="form">
+                    <form:form method="post" action="/login" class="form-horizontal" modelAttribute="user" >
                         <div class="mb-3">
-                            <label for="username" class="control-label">Email *</label>
-                            <input type="text"
-                                   id="username"
-                                   name="username"
-                                   class="form-control"
-                                   placeholder="Email"
-                            />
+                           <input type="text" name="username" placeholder="UserName" class="control-label"/>
                         </div>
 
                         <div class="mb-3">
                             <label for="password" class="control-label">Password *</label>
-                            <input type="password"
-                                   id="password"
-                                   name="password"
-                                   class="form-control"
-                                   placeholder="Password"
-                            />
+                            <input type="text" name="password" placeholder="UserName" class="control-label"/>
                         </div>
 
                         <div class="mb-3">
                             <button type="submit" class="btn btn-primary">Login</button>
                             <span> Not registered?
-                            <a a:href="@{/register}"> Register/SignUp Here</a>
+                            <a a:href="/register"> Register/SignUp Here</a>
                         </span>
                         </div>
                     </form>
