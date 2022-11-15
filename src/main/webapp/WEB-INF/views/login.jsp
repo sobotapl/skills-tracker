@@ -15,7 +15,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" th:fragment="header">
     <div class="container-fluid">
-        <a class="navbar-brand" a:href="@{/}">Registration and Login System</a>
+        <a class="navbar-brand" c:href="@{/}">Registration and Login System</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,7 +55,7 @@
                         <div class="mb-3">
                             <button type="submit" class="btn btn-primary">Login</button>
                             <span> Not registered?
-                            <a a:href="/register"> Register/SignUp Here</a>
+                            <a c:href="/register"> Register/SignUp Here</a>
                         </span>
                         </div>
                     </form>
