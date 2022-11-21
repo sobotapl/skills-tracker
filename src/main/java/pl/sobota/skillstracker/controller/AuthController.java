@@ -1,5 +1,6 @@
 package pl.sobota.skillstracker.controller;
 
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,6 +19,7 @@ import java.util.List;
 public class AuthController {
 
     private UserService userService;
+    private UserDetailsService userDetailsService;
 
     public AuthController(UserService userService) {
         this.userService = userService;
@@ -29,10 +31,10 @@ public class AuthController {
     }
 
     @GetMapping("/login")
-    public String loginForm(Model model) {
-        model.addAttribute("user", new User());
+    public String loginForm() {
         return "login";
     }
+
 
 
 
