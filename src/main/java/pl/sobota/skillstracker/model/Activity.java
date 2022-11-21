@@ -1,10 +1,13 @@
 package pl.sobota.skillstracker.model;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -24,6 +27,9 @@ public class Activity {
     private LocalDate end;
 
     private String description;
+
+    @OneToMany
+    private List<Category> categories = new ArrayList<>();
 
 
 
