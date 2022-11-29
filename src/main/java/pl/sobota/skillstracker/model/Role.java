@@ -5,6 +5,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Setter
@@ -23,6 +24,6 @@ public class Role
     private String name;
 
     @ManyToMany(mappedBy="roles")
-    private List<User> users;
+    private List<User> users = new ArrayList<>();
 }
 
