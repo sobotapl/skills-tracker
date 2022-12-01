@@ -2,7 +2,6 @@ package pl.sobota.skillstracker.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 
 @Data
 @Entity
