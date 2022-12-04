@@ -3,14 +3,17 @@ package pl.sobota.skillstracker.controller;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import pl.sobota.skillstracker.dto.ActivityDto;
 import pl.sobota.skillstracker.model.Activity;
 import pl.sobota.skillstracker.model.Category;
 import pl.sobota.skillstracker.repository.ActivityRepository;
 import pl.sobota.skillstracker.repository.CategoryRepository;
+
+import javax.validation.Valid;
+import java.awt.print.Book;
 
 
 @RequiredArgsConstructor
@@ -40,6 +43,21 @@ public class ActivityController {
         activity.getCategories().add(category);
         activityRepository.save(activity);
         return "OK";
+    }
+
+
+    @GetMapping("add")
+    public String addNewBook(Model model){
+        model.addAttribute("book", new Book());
+        return "bookForm-add";
+    }
+    @PostMapping("add")
+    public String saveNewBook(@ModelAttribute("ActivityDto") @Valid ActivityDto activityDto, BindingResult result){
+        if(result.hasErrors()){
+            return "bookForm-add";
+        }
+        activityRepository.save(activityDto);
+        return "redirect:/bookForm/all";
     }
 
 
