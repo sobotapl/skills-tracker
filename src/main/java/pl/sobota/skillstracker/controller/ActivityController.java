@@ -11,6 +11,7 @@ import pl.sobota.skillstracker.model.Activity;
 import pl.sobota.skillstracker.model.Category;
 import pl.sobota.skillstracker.repository.ActivityRepository;
 import pl.sobota.skillstracker.repository.CategoryRepository;
+import pl.sobota.skillstracker.service.ActivityService;
 
 import javax.validation.Valid;
 import java.awt.print.Book;
@@ -23,6 +24,8 @@ public class ActivityController {
 
     private final ActivityRepository activityRepository;
     private final CategoryRepository categoryRepository;
+
+    private final ActivityService activityService;
 
 
     @ResponseBody
@@ -46,18 +49,18 @@ public class ActivityController {
     }
 
 
-    @GetMapping("add")
-    public String addNewBook(Model model){
-        model.addAttribute("book", new Book());
-        return "bookForm-add";
+    @GetMapping("/create")
+    public String createNewActivity(Model model){
+        model.addAttribute("activityDto", new ActivityDto());
+        return "OK";
     }
-    @PostMapping("add")
+    @PostMapping("/create")
     public String saveNewBook(@ModelAttribute("ActivityDto") @Valid ActivityDto activityDto, BindingResult result){
         if(result.hasErrors()){
             return "bookForm-add";
         }
-        activityRepository.save(activityDto);
-        return "redirect:/bookForm/all";
+        activityService.createActivitty(activityDto);
+        return "redirect:/all";
     }
 
 
